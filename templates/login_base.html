@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        ca1
+    </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Hi! {{session['account']}}, Welcome!</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{url_for('main_page')}}">Main Page</a></li>
+            <li><a href="{{url_for('event_edit')}}">Modify your schedule!</a></li>
+        </ul>
+    </nav>
+    {% block main_content%}
+    {% endblock %}
+    <footer>
+        ©️ldl.
+    </footer>
+</body>
+
+
+</html>

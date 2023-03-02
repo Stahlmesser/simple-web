@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<main>
+    <form action="" method="POST">
+        {{form.hidden_tag()}}
+        {{form.account.label}}
+        {{form.account()}}
+        {% for error in form.account.errors%}
+            {{error}}
+        {% endfor %}
+        <br/>
+        {{form.password.label}}
+        {{form.password()}}
+        {% for error in form.password.errors%}
+            {{error}}
+        {% endfor %}
+        <br/>
+        {{form.repeat_password.label}}
+        {{form.repeat_password()}}
+        {% for error in form.repeat_password.errors%}
+            {{error}}
+        {% endfor %}
+        <br/>
+        {{form.submit()}}
+        {{message}}
+    </form>
+    <p>
+        Go to the <a href="{{url_for('index')}}">login page!</a>
+    </p>
+</main>
+<footer>
+    ©️All belong to ldl.
+</footer>
+{% endblock %}

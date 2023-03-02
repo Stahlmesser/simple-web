@@ -1,0 +1,95 @@
+{% extends "login_base.html" %}
+
+{% block main_content %}
+    <main>
+        <form action="" method="POST">
+            <table id="calendar">
+                <caption>
+                    <b>Calendar of this month</b>
+                    <br />
+                    Year:{{now_time.year}}
+                    Month:{{now_time.month}}
+                </caption>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thur</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+                {% for week in calendar_%}
+                <tr>
+                    {% for day in week%}
+                        {% if day!=0%}
+                                {% for sub_radio in form.days_of_month%}
+                                    {% if sub_radio.data==day%}
+                                        {% if _today==day%}
+                                            <td id="today">{{day}}</td>
+                                        {% else %}
+                                            <td>
+                                            {{sub_radio}}
+                                            {{day}}
+                                            </td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            
+                        {% else%}
+                            <td></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+                {{form.submit}}
+            <br/>
+            {% if form.days_of_month.data!=None%}
+                {% for item in event_of_chosen_day%}
+                    {% if item!=None %}
+                    <table>
+                        <caption>Schedule of the chosen day </caption>
+                        <tr>
+                            <th>Type</th>
+                            <th>Due time</th>
+                            <th>Subject</th>
+                            <th>Content</th>
+                        </tr>
+                        <tr>
+                            <td>{{item['type']}}</td>
+                            <td>{{item['end_date']}}</td>
+                            <td>{{item['subject']}}</td>
+                            <td>{{item['content']}}</td>
+                        </tr>
+                    </table>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </form>
+
+        <br/>
+        {%if events_today !=[]%}
+        <table>
+                <caption>Today's schedule</caption>
+                <tr>
+                    <th>Type</th>
+                    <th>Due time</th>
+                    <th>Subject</th>
+                    <th>Content</th>
+                </tr>
+                {% for event in events_today%}
+                <tr>
+                    <td>{{event['type']}}</td>
+                    <td>{{event['end_date']}}</td>
+                    <td>{{event['subject']}}</td>
+                    <td>{{event['content']}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Nothing is scheduled today. Enjoy your leisure!</p>
+        {% endif %}
+    </main>
+
+{% endblock %}

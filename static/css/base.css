@@ -1,0 +1,52 @@
+:root{
+    font-size: 18px;
+}
+
+
+header{
+    margin: 0 auto;
+    background-color: rgba(240, 255, 255, 0.678);
+    padding: 1%;
+    text-align: center;
+    font-size: 2em;
+    font-style: italic;
+}
+
+body{
+    margin: 0 auto;
+    width: 80%;
+    background-image: url('../img/pattern019.png');
+    padding: 5%;
+}
+
+
+main{
+    text-align: center;
+    background-color: rgba(253, 245, 230, 0.392);
+    padding: 1%;
+    font-size: 1.3em;
+}
+
+form{
+    width: 60%;
+    margin-top: 1%;
+    margin:0 auto;
+    background-color:rgba(34, 139, 34, 0.392);
+    font-size: 1.2em;
+}
+
+footer{
+    width: 98%;
+    text-align: center;
+    background-color:rgba(95, 158, 160, 0.52);
+    float: left;
+    padding: 1%;
+}
+
+p{  
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgba(100, 148, 237, 0.651);
+    padding: 1%;
+    font-size: 1em;
+}
